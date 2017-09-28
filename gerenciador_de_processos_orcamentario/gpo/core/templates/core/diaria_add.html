@@ -1,0 +1,17 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+
+<div class="container-cadastro-diaria">
+         <div class="box-cadastro-diaria">
+
+    <h1>Cadastro de Diária</h1>
+    <form method="POST" class="formulario-diaria-add">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Salvar</button>
+    </form>
+         </div>
+     </div>
+
+{% endblock %}

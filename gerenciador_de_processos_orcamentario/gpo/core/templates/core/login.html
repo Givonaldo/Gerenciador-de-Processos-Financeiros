@@ -1,0 +1,35 @@
+<!-- Arquivo: templates/users/login.html -->
+<!DOCTYPE html>
+
+{% load static %}
+
+
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+  <div class="login">
+	<h1>Login</h1>
+
+
+    <form role="form" class="form" method="POST" action="{{ request.path }}{% if next %}?next={{ next }}{% endif %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-warning"><i class="fa fa-plus" aria-hidden="true"></i> Login</button>
+    </form>
+
+
+</div>
+
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

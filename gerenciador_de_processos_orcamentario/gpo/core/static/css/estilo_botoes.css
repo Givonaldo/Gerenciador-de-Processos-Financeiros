@@ -1,0 +1,28 @@
+.bt-container { 
+    position: absolute;
+    left: 200px;
+	top: 200px;
+ }
+.text-white-houve:hover,
+.bt {
+  color: #1e1d1d !important;
+}
+.shadow-1,
+.bt,
+.transition-1,
+.bt {
+  transition: all .3s ease-out;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+.bt {
+  border: 0;
+  padding: 10px;
+  width: 200px;
+  height: 50px;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}

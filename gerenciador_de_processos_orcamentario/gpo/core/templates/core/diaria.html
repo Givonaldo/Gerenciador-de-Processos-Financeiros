@@ -1,0 +1,22 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+
+<div class="bt-container">
+
+    <a href="{% url 'core:diaria_add' %}">
+        <button class='bt'>Preparar Processo</button>
+    </a>
+    <a href="#">
+        <button class='bt'>Diárias Pagas</button>
+    </a>
+    <a href="#">
+        <button class='bt'>Estatisticas</button>
+    </a>
+    <a href="#">
+        <button class='bt'>Emitir Processo</button>
+    </a>
+
+</div>
+
+{% endblock %}

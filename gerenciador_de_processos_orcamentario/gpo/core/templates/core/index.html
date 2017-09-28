@@ -1,0 +1,75 @@
+<!doctype html>
+
+{% load static %}
+
+{% if user.is_authenticated %}
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+
+    <title>Gerenciador de Processos Orçamentário</title>
+
+    <link rel="stylesheet" href="{% static 'css/estilo_pagina.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/estilo_botoes.css' %}" />
+
+</head>
+<body>
+    <div class="content">
+
+            <div id="menu">
+
+                <ul>
+
+                    <li class="pure-menu-selected">
+                        <a href="{% url 'core:home' %}">Início</a>
+                    </li>
+
+                    <li class="pure-menu-selected">
+                        <a href="#">Formulários</a>
+                    </li>
+
+                    <li class="pure-menu-selected">
+                        <a href="#">Credores</a>
+                    </li>
+
+                    <li class="pure-menu-selected">
+                        <a href="#">Processos</a>
+                    </li>
+
+                    <li class="pure-menu-selected">
+                        <a href="{% url 'core:diaria' %}">Diárias</a>
+                    </li>
+
+                    <li class="pure-menu-selected">
+                        <a href="#">Sobre</a>
+                    </li>
+
+                    <li class="botao-sair" >
+                        <a href="{% url 'core:logout' %}">Sair</a>
+                    </li>
+
+                </ul>
+
+        </div>
+
+        <div class="content">
+            {% block content %}
+
+
+
+            {% endblock %}
+        <div class="footer">
+            <p>© 2017 - Descrição do desenvolvedor</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+{% else %}
+<p><a href="{% url 'core:register' %}">Registre-se</a>.</p>
+<p><a href="{% url 'core:login' %}">Login</a>.</p>
+{% endif %}
