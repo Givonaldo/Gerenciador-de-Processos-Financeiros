@@ -62,6 +62,9 @@ class ProcessoDeDiaria(models.Model):
         verbose_name_plural = 'Diárias'
 
 class Credor(models.Model):
+    class Meta:
+        abstract = True
+
     nome = models.CharField(verbose_name=u'Nome', max_length=100, help_text="Nome do Credor", default='None')
     codigo_credor = models.CharField(verbose_name=u'Código do Credor', max_length=100, default='None', help_text="Código do Credor do SIAF")
     telefone = models.CharField(verbose_name=u'Telefone', max_length=100, help_text="Telefone do Credor", default='None')
@@ -82,8 +85,8 @@ class CredorFornecedor(Credor):
     cnpj = models.CharField(verbose_name=u'CNPJ', max_length=100, help_text="CNPJ", default='None')
 
     class Meta:
-        verbose_name = 'Credor'
-        verbose_name_plural = 'Credores'
+        verbose_name = 'Fornecedor'
+        verbose_name_plural = 'Fornecedores'
 
 
 class ProcessoDePagamento(models.Model):
