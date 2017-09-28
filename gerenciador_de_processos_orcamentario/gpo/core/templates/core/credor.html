@@ -1,0 +1,22 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+
+<div class="bt-container">
+
+    <a href="{% url 'core:credor-servidor' %}">
+        <button class='bt'>Adicionar Credor Servidor</button>
+    </a>
+    <a href="#">
+        <button class='bt'>Adicionar Credor Fornecedor</button>
+    </a>
+    <a href="#">
+        <button class='bt'>Credores</button>
+    </a>
+    <a href="#">
+        <button class='bt'>Estatísticas</button>
+    </a>
+
+</div>
+
+{% endblock %}

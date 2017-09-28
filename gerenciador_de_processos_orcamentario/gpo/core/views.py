@@ -46,4 +46,12 @@ def sobre(request):
     template_name = 'core/sobre.html'
     return render(request, template_name)
 
+def credorServidoAdd(request):
+    pass
 
+def credorFornecedorAdd(request):
+    pass
+
+def credor(request):
+    template_name = 'core/credor.html'
+    return render(request, template_name)
