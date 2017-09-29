@@ -74,6 +74,6 @@ def listagem_diarias(request):
     try:
         diarias_cadastradas = ProcessoDeDiaria.objects.all()
     except ProcessoDeDiaria.DoesNotExist:
-        raise Http404(u"Fornecedor não existe.")
+        raise Http404(u"Diárias Não Existem.")
     template_name = 'processos/diarias.html'
     return render(request, template_name)
