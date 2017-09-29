@@ -34,10 +34,6 @@ def diaria(request):
     template_name = 'core/diaria.html'
     return render(request, template_name)
 
-def diaria_add(request):
-    form = DiariaAddForm
-    return render(request, 'core/diaria_add.html', {'form': form})
-
 def index(request):
     template_name = 'core/index.html'
     return render(request, template_name)
@@ -46,13 +42,35 @@ def sobre(request):
     template_name = 'core/sobre.html'
     return render(request, template_name)
 
-def credor_servido_add(request):
-    form = CredorServidorForm
-    return render(request, 'core/credor_servidor_add.html', {'form': form})
-
 def credorFornecedorAdd(request):
     pass
 
 def credor(request):
     template_name = 'core/credor.html'
     return render(request, template_name)
+
+#############CREDOR SERVIDOR - super(type, obj): obj must be an instance or subtype of type ##################
+
+def credor_servido_add(request):
+    if request.method == 'POST':
+        form = CredorServidorForm(request.POST)
+        if form.is_valid():
+            formulario = form.save(commit=False)
+            formulario.save()
+            render(request, 'core/index.html',)
+    else:
+        form = CredorServidorForm()
+    return render(request, 'core/credor_servidor_add.html', {'form': form})
+
+
+###################################
+def diaria_add(request):
+    if request.method == 'POST':
+        form = DiariaAddForm(request.POST)
+        if form.is_valid():
+            formulario = form.save(commit=False)
+            formulario.save()
+            render(request, 'core/index.html',)
+    else:
+        form = DiariaAddForm
+    return render(request, 'core/diaria_add.html', {'form': form})

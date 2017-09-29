@@ -71,6 +71,9 @@ class Credor(models.Model):
     email = models.EmailField(max_length=100, default='None')
     endereco = models.CharField(verbose_name=u'Endereço', max_length=100, help_text="Endereço do Credor", default='None')
 
+    def __str__(self):
+        return self.name
+
 class CredorServidor(Credor):
     matricula = models.CharField(verbose_name=u'Matrícula', max_length=10, help_text="Matrícula", default='None')
     funcacao = models.CharField(verbose_name=u'Função', max_length=100, help_text="Função", default='None')

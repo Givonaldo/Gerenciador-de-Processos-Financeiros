@@ -17,6 +17,14 @@ class DiariaAddForm(ModelForm):
 
 
 class CredorServidorForm(ModelForm):
+
+    def save(self, commit=True):
+        instance = super(CredorServidor, self).save(commit=False)
+        if commit:
+            instance.save()
+        return instance
+
     class Meta:
         model = CredorServidor
-        fields = ['nome', 'matricula', 'codigo_credor']
+        fields = ['nome', 'matricula', 'codigo_credor', 'telefone',
+                  'email', 'endereco', 'funcacao', 'cpf']
