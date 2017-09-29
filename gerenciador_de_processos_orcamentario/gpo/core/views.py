@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.http import Http404
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.views import login
@@ -29,10 +29,6 @@ class RegistrationView(CreateView):
     success_url = reverse_lazy('core:login')
     template_name = "core/register.html"
 
-def diaria(request):
-    template_name = 'core/diaria.html'
-    return render(request, template_name)
-
 def index(request):
     template_name = 'core/index.html'
     return render(request, template_name)
@@ -42,7 +38,7 @@ def sobre(request):
     return render(request, template_name)
 
 def credor(request):
-    template_name = 'core/credor.html'
+    template_name = 'credores/credor.html'
     return render(request, template_name)
 
 def credor_servido_add(request):
@@ -54,10 +50,14 @@ def credor_servido_add(request):
             return render(request, 'core/index.html',)
     else:
         form = CredorServidorForm()
-    return render(request, 'core/credor_servidor_add.html', {'form': form})
+    return render(request, 'credores/credor_servidor_add.html', {'form': form})
 
 def credorFornecedorAdd(request):
     pass
+
+def diaria(request):
+    template_name = 'processos/diaria.html'
+    return render(request, template_name)
 
 def diaria_add(request):
     if request.method == 'POST':
@@ -68,5 +68,12 @@ def diaria_add(request):
             return render(request, 'core/index.html',)
     else:
         form = DiariaAddForm
-    return render(request, 'core/diaria_add.html', {'form': form})
+    return render(request, 'processos/diaria_add.html', {'form': form})
 
+def listagem_diarias(request):
+    try:
+        diarias_cadastradas = ProcessoDeDiaria.objects.all()
+    except ProcessoDeDiaria.DoesNotExist:
+        raise Http404(u"Fornecedor não existe.")
+    template_name = 'processos/diarias.html'
+    return render(request, template_name)
