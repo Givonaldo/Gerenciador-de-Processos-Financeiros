@@ -5,7 +5,7 @@ from django.contrib.auth.views import login
 from django.contrib.auth.views import logout
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import CustomUserCreationForm, DiariaAddForm
+from .forms import *
 
 
 def home(request):
@@ -46,4 +46,13 @@ def sobre(request):
     template_name = 'core/sobre.html'
     return render(request, template_name)
 
+def credor_servido_add(request):
+    form = CredorServidorForm
+    return render(request, 'core/credor_servidor_add.html', {'form': form})
 
+def credorFornecedorAdd(request):
+    pass
+
+def credor(request):
+    template_name = 'core/credor.html'
+    return render(request, template_name)
