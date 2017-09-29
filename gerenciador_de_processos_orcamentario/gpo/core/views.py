@@ -14,7 +14,6 @@ def home(request):
 def login_view(request, *args, **kwargs):
     if request.user.is_authenticated():
         return HttpResponseRedirect(reverse('core:home'))
-
     kwargs['extra_context'] = {'next': reverse('core:home')}
     kwargs['template_name'] = 'core/login.html'
     return login(request, *args, **kwargs)
@@ -34,10 +33,6 @@ def diaria(request):
     template_name = 'core/diaria.html'
     return render(request, template_name)
 
-def diaria_add(request):
-    form = DiariaAddForm
-    return render(request, 'core/diaria_add.html', {'form': form})
-
 def index(request):
     template_name = 'core/index.html'
     return render(request, template_name)
@@ -46,13 +41,32 @@ def sobre(request):
     template_name = 'core/sobre.html'
     return render(request, template_name)
 
+def credor(request):
+    template_name = 'core/credor.html'
+    return render(request, template_name)
+
 def credor_servido_add(request):
-    form = CredorServidorForm
+    if request.method == 'POST':
+        form = CredorServidorForm(request.POST)
+        if form.is_valid():
+            formulario = form.save(commit=False)
+            formulario.save()
+            return render(request, 'core/index.html',)
+    else:
+        form = CredorServidorForm()
     return render(request, 'core/credor_servidor_add.html', {'form': form})
 
 def credorFornecedorAdd(request):
     pass
 
-def credor(request):
-    template_name = 'core/credor.html'
-    return render(request, template_name)
+def diaria_add(request):
+    if request.method == 'POST':
+        form = DiariaAddForm(request.POST)
+        if form.is_valid():
+            formulario = form.save(commit=False)
+            formulario.save()
+            return render(request, 'core/index.html',)
+    else:
+        form = DiariaAddForm
+    return render(request, 'core/diaria_add.html', {'form': form})
+

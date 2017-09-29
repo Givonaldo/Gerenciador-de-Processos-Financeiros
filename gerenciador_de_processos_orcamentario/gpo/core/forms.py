@@ -19,4 +19,5 @@ class DiariaAddForm(ModelForm):
 class CredorServidorForm(ModelForm):
     class Meta:
         model = CredorServidor
-        fields = ['nome', 'matricula', 'codigo_credor']
+        fields = ['nome', 'matricula', 'codigo_credor', 'telefone',
+                  'email', 'endereco', 'funcacao', 'cpf']
