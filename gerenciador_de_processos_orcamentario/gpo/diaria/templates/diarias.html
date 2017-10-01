@@ -1,0 +1,29 @@
+{% extends "core/index.html" %}
+
+{% block content %}
+
+<table id="t01">
+
+    {% for diaria in diarias %}
+    <tr>
+        <th>Credor</th>
+        <th> {{ diaria.credor.nome }}</th>
+    </tr>
+    <tr>
+        <th>Destino</th>
+        <th> {{ diaria.destino }}</th>
+    </tr>
+    <tr>
+        <th>Data da Saída</th>
+        <th> {{ diaria.data_saida }}</th>
+    </tr>
+    <tr>
+        <th>Data da Volta</th>
+        <th> {{ diaria.data_volta }}</th>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

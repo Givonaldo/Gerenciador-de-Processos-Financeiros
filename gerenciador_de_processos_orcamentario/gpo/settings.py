@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gpo.core'
+    'gpo.core',
+    'gpo.credor',
+    'gpo.diaria',
 ]
 
 MIDDLEWARE = [
