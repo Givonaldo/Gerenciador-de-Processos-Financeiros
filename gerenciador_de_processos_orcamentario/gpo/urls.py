@@ -18,5 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^', include('gpo.core.urls', namespace='core')),
+    url(r'^', include('gpo.credor.urls', namespace='credor')),
+    url(r'^', include('gpo.diaria.urls', namespace='diaria')),
     url(r'^admin/', admin.site.urls),
 ]

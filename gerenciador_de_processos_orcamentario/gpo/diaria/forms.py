@@ -4,7 +4,7 @@ from gpo.diaria.models import ProcessoDeDiaria
 
 
 class DiariaAddForm(ModelForm):
-
+    '''
     def gera_numero(tipo):
         now = datetime.now()
         cont = ProcessoDeDiaria.objects.count()
@@ -17,6 +17,7 @@ class DiariaAddForm(ModelForm):
     ProcessoDeDiaria.numero_processo.default = gera_numero("processo")
     ProcessoDeDiaria.numero_memorando.default = gera_numero("memorando")
 
+    '''
     class Meta:
         model = ProcessoDeDiaria
         fields = ['credor', 'destino', 'descricao', 'data_saida', 'data_volta']

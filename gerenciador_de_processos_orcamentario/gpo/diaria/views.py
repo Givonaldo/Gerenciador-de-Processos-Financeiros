@@ -13,7 +13,7 @@ def diaria_add(request):
         if form.is_valid():
             formulario = form.save(commit=False)
             formulario.save()
-            pagina_inicial = 'core/index.html'
+            pagina_inicial = 'index.html'
             return render(request, pagina_inicial,)
     else:
         form = DiariaAddForm

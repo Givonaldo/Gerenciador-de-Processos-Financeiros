@@ -13,7 +13,7 @@ def login_view(request, *args, **kwargs):
     if request.user.is_authenticated():
         return HttpResponseRedirect(reverse('core:home'))
     kwargs['extra_context'] = {'next': reverse('core:home')}
-    kwargs['template_name'] = 'core/login.html'
+    kwargs['template_name'] = 'login.html'
     return login(request, *args, **kwargs)
 
 def logout_view(request, *args, **kwargs):
