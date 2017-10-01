@@ -15,7 +15,7 @@ def credor_servido_add(request):
             formulario.save()
             return render(request, 'index.html',)
     else:
-        form = CredorServidorForm()
+        form = CredorServidorForm
     return render(request, 'credor_servidor_add.html', {'form': form})
 
 def credor_fornecedor_add(request):
@@ -23,8 +23,12 @@ def credor_fornecedor_add(request):
         form = CredorFornecedorForm(request.POST)
         if form.is_valid():
             formulario = form.save(commit=False)
-            return render(render, 'index.html')
+            formulario.save()
+            return render(request, 'index.html')
     else:
-        form = CredorFornecedorForm()
-    return render(render, 'credor_fornecedor_add.html', {'form': form})
+        form = CredorFornecedorForm
+    return render(request, 'credor_fornecedor_add.html', {'form': form})
+
+
+
 
