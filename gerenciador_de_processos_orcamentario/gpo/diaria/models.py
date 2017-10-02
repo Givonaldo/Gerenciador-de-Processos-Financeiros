@@ -21,6 +21,8 @@ class ProcessoDeDiaria(models.Model):
     descricao = models.TextField('Descrição', blank=True)
     data_saida = models.DateField('Data da Saída',)
     data_volta = models.DateField('Data da Volta',)
+    valor = models.CharField(verbose_name=u'Valor', max_length=100, blank=True, default='',
+                                      help_text='Valor da Diária')
     numero_empenho = models.CharField(verbose_name=u'NE', max_length=100, blank = True, default = '', help_text='Número da Nota de Empenho')
     nota_empenho = models.FileField(upload_to='empenhoDiaria/%d/%m/%Y/', blank = True, help_text='Nota de Empenho em Formato PDF', max_length=100,)
     numero_liquidacao = models.CharField(verbose_name=u'LD', max_length=100, blank = True, default = '')

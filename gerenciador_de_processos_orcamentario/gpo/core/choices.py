@@ -4,6 +4,22 @@ from .models import *
 
 class GPOChoices:
 
+    #Natureza da Despesa(Processos de Pagamento)
+    DIARIAS_CIVIL = u'Diárias [33.90.14.00'
+    MATERIAL_DE_CONSUMO = u'Materia de Consumo [33.90.30.00]'
+    OUTROS_SERVICOS_TERCEIROS_PESSOA_FISICA = u'Serviços de Pessoa Física [33.90.36.00]'
+    OUTROS_SERVICOS_TERCEIROS_PESSOA_JURIDICA = u'Serviços de Pessoa Jurídica [33.90.39.00]'
+
+
+    NATUREZA_DA_DESPESA = {
+        DIARIAS_CIVIL : u'Diárias [33.90.14.00',
+        MATERIAL_DE_CONSUMO : u'Materia de Consumo [33.90.30.00]',
+        OUTROS_SERVICOS_TERCEIROS_PESSOA_FISICA : u'Serviços de Pessoa Física [33.90.36.00]',
+        OUTROS_SERVICOS_TERCEIROS_PESSOA_JURIDICA : u'Serviços de Pessoa Jurídica [33.90.39.00]',
+    }
+
+
+    #Municípios da Paraíba
     AGUA_BRANCA = u'Agua_Branca'
     AGUIAR = u'Aguiar'
     ALAGOA_GRANDE = u'Alagoa Grande'
@@ -161,12 +177,12 @@ class GPOChoices:
     REMIGIO = U'Remigio'
     RIACAO_DO_BACAMARTE = u'Riachão do Bacamarte'
     RIACHO_DO_POCO = u'Riachao do Poço'
+    SALGADO_DE_SAO_FELIX = u'Salgado de São Felix'
     RIACAO = u'Riachão'
     RIACHO_DE_SANTO_ANTONIO = u'Riacho de Santo Antonio'
     RIACHO_DOS_CAVALOS = u'Riacho dos Cavalos'
     RIO_TINTO = u'Rio Tinto'
     SALGADINHO = u'Salgadinho'
-    SALGADO_DE_SAO_FELIX = u'Salgado de São Felix'
     SANTA_CECILIA = u'Santa Cecilia'
     SANTA_CRUZ = u'Santa Cruz'
     SANTA_HELENA = u'Santa Helena'
