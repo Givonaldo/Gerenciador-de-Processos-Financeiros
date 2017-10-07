@@ -9,16 +9,13 @@ class ProcessoPagamento(models.Model):
         help_text="Número do Processo", default='',
         unique=True
     )
-
     numero_memorando = models.CharField(
         verbose_name=u'Número do Memorando', max_length=100,
         help_text="Número do Memorando", default='',
         unique=True
     )
-
     natureza_despesa = models.CharField(verbose_name=u'Natureza da Despesa', max_length=100,
                                         choices=GPOChoices.NATUREZA_DA_DESPESA.items())
-
     credor = models.ForeignKey('credor.CredorFornecedor', verbose_name='Credor')
     valor_bruto = models.CharField(verbose_name=u'Valor', max_length=100, blank=True, default='',
                                       help_text='Valor Bruto')
@@ -35,41 +32,56 @@ class ProcessoPagamento(models.Model):
                                  help_text='Número da Autorização de Pagamento Extra Orçamentária')
     valor_liquido = models.CharField(verbose_name=u'Valor Líquido', max_length=100, blank=True, default='',
                                  help_text='Valor Líquido',)
-
     class Meta:
         verbose_name = "Processo"
         verbose_name_plural = "Processos"
 
 
-class TomadaDePreco(models.Model):
+class MapaComparativo(models.Model):
 
-    tomada1 = models.ForeignKey('processo_pagamento.ConsultaDePreco')
-    tomada2 = models.ForeignKey('processo_pagamento.ConsultaDePreco')
-    tomada3 = models.ForeignKey('processo_pagamento.ConsultaDePreco')
+    tomada1 = models.OneToOneField('processo_pagamento.ConsultaDePreco', verbose_name='Tomada 1', blank=True, default='', related_name="tomada_de_preco1")
+    tomada2 = models.OneToOneField('processo_pagamento.ConsultaDePreco', verbose_name='Tomada 2', blank=True, default='' ,related_name="tomada_de_preco2")
+    tomada3 = models.OneToOneField('processo_pagamento.ConsultaDePreco', verbose_name='Tomada 3', blank=True, default='', related_name="tomada_de_preco3")
+
+    menor_preco = models.CharField(verbose_name='Menor Preço: ', max_length=100, blank=True, default='')
+    preco_medio = models.CharField(verbose_name='Preço Médio:', max_length=100, blank=True, default='')
+
+    ganhador = models.ForeignKey('credor.CredorFornecedor', verbose_name='Credor')
 
 
-class ConsultaDePreco():
-    numero_tomada = models.CharField()
+class ConsultaDePreco(models.Model):
+    numero_tomada = models.CharField(
+        verbose_name=u'Número da Consulta', max_length=100,
+        help_text="Número da Consulta de Preço", default='',
+        unique=True
+    )
     credor = models.ForeignKey('credor.CredorFornecedor', verbose_name='Credor')
-    itens = models.ManyToManyField(ItemMaterialDeConsumo)
+    itens = models.ManyToManyField('processo_pagamento.ItemMaterialDeConsumo')
+
+    def __str__(self):
+        self.numero_tomada
+
+class OrdemPagamento(models.Model):
+    numero_ordem = models.CharField(
+        verbose_name=u'Número da Ordem', max_length=100,
+        help_text="Número da Ordem de Preço", default='',
+        unique=True
+    )
+    consulta_vencedora = models.ForeignKey('processo_pagamento.MapaComparativo')
 
 
-class OrdemPagamento():
+class ItemDeDespesa(models.Model):
     pass
 
-class ItemDeDespesa():
-    pass
 
-
-class ItemMaterialDeConsumo():
-    nome = models.CharField()
-    valor_unitario = models.CharField(verbose_name='Valor Unitário', )
-    tipo_de_medida = models.CharField(verbose_name='Tipo de Unidade de Medida', max_length=100,
-                                        choices=GPOChoices.NATUREZA_DA_DESPESA.items())
+class ItemMaterialDeConsumo(models.Model):
+    nome = models.CharField(verbose_name='Nome', max_length=100,)
+    valor_unitario = models.CharField(verbose_name='Valor Unitário', max_length=100,)
+    tipo_de_medida = models.CharField(verbose_name='Tipo de Unidade de Medida', max_length=100,)
     def __str__(self):
         self.nome
 
-class NaturezaDaDespesa():
+class NaturezaDaDespesa(models.Model):
     codigo = models.CharField(verbose_name='Código Natureza da Despesa', max_length=100)
     descricao = models.CharField(verbose_name='Descrição', max_length=100)
 

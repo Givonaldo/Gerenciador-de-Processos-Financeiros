@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'gpo.core',
     'gpo.credor',
     'gpo.diaria',
+    'gpo.processo_pagamento'
 ]
 
 MIDDLEWARE = [
