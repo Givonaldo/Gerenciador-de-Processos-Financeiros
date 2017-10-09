@@ -20,5 +20,7 @@ urlpatterns = [
     url(r'^', include('gpo.core.urls', namespace='core')),
     url(r'^', include('gpo.credor.urls', namespace='credor')),
     url(r'^', include('gpo.diaria.urls', namespace='diaria')),
+    url(r'^', include('gpo.processo_pagamento.urls', namespace='processo_pagamento')),
+    url(r'^', include('gpo.relatorio.urls', namespace='relatorio')),
     url(r'^admin/', admin.site.urls),
 ]

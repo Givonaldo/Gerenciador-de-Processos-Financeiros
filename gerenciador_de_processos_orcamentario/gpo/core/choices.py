@@ -12,7 +12,7 @@ class GPOChoices:
 
 
     NATUREZA_DA_DESPESA = {
-        DIARIAS_CIVIL : u'Diárias [33.90.14.00',
+        DIARIAS_CIVIL : u'Diárias [33.90.14.00]',
         MATERIAL_DE_CONSUMO : u'Materia de Consumo [33.90.30.00]',
         OUTROS_SERVICOS_TERCEIROS_PESSOA_FISICA : u'Serviços de Pessoa Física [33.90.36.00]',
         OUTROS_SERVICOS_TERCEIROS_PESSOA_JURIDICA : u'Serviços de Pessoa Jurídica [33.90.39.00]',
