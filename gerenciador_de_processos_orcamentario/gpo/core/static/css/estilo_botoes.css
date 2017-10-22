@@ -26,3 +26,9 @@
   cursor: pointer;
   border-radius: 4px;
 }
+
+li.botao-home {
+
+    button.list-style-image: url('image/home.png');
+
+}

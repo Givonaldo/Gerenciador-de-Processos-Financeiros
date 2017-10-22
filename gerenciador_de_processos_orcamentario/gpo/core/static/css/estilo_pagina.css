@@ -15,16 +15,16 @@
         margin: 0px;
 }
 
-#menu ul {
+div.menu ul {
     padding:0px;
     margin:0px;
     background-color:#EDEDED;
     list-style:none;
 }
 
-#menu ul li { display: inline; }
+div.menu ul li { display: inline; }
 
-#menu ul li a {
+div.menu ul li a {
     padding: 10px 30px;
     display: inline-block;
 
@@ -35,7 +35,7 @@
     border-bottom:3px solid #EDEDED;
 }
 
-#menu ul li a:hover {
+div.menu ul li a:hover {
     background-color:#D6D6D6;
     color: #6D6D6D;
     border-bottom:3px solid #a0a5a0;
@@ -50,4 +50,18 @@
     background-color: #EDEDED;
     color: black;
     text-align: center;
+}
+
+.bola {
+    border-radius: 50%;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border: 1px solid #000000;
+    background-color: #ccc;
+    margin: auto;
+}
+
+li.botao-sair {
+    margin: right;
 }
