@@ -1,11 +1,13 @@
 from django.shortcuts import render
-
-# Create your views here.
 from gpo.processo_pagamento.forms import ProcessoPagamentoForm
 
 
 def processo_pagamento(request):
     template_name = 'processo_pagamento.html'
+    return render(request, template_name)
+
+def servico_pj(request):
+    template_name = 'processo_pj.html'
     return render(request, template_name)
 
 

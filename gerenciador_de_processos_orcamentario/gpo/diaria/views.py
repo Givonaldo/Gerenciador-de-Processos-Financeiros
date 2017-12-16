@@ -28,3 +28,4 @@ def listagem_diarias(request):
     except ProcessoDeDiaria.DoesNotExist:
         raise Http404(u"Diárias Não Existem.")
     return render(request, template_name)
+

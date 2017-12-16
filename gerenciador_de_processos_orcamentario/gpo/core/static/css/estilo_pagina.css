@@ -62,6 +62,27 @@ div.menu ul li a:hover {
     margin: auto;
 }
 
-li.botao-sair {
-    margin: right;
+li.botao-sair a {
+    float: right;
+}
+
+table.tb_diarias tr:nth-child(odd) {
+    background-color:#fff;
+}
+
+table.tb_diarias tr:nth-child(even) {
+    background-color:#ccc;
+}
+
+table.tb_diarias {
+border: 1px solid black;
+  border-collapse: collapse;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  resize: both;
+  overflow: auto;
 }

@@ -2,26 +2,41 @@
 
 {% block content %}
 
-<table id="t01">
+
+<table class="tb_diarias">
+    <tr>
+        <th>Credor</th>
+        <th>Destino</th>
+        <th>Data da Saída</th>
+        <th>Data da Volta</th>
+        <th>Gerar Capa</th>
+        <th>Gerar Memorando</th>
+        <th>Gerar Relatório</th>
+    </tr>
 
     {% for diaria in diarias %}
     <tr>
-        <th>Credor</th>
-        <th> {{ diaria.credor.nome }}</th>
-    </tr>
-    <tr>
-        <th>Destino</th>
-        <th> {{ diaria.destino }}</th>
-    </tr>
-    <tr>
-        <th>Data da Saída</th>
-        <th> {{ diaria.data_saida }}</th>
-    </tr>
-    <tr>
-        <th>Data da Volta</th>
-        <th> {{ diaria.data_volta }}</th>
+        <td>{{ diaria.credor.nome }}</td>
+        <td>{{ diaria.destino }}</td>
+        <td>{{ diaria.data_saida }}</td>
+        <td>{{ diaria.data_volta }}</td>
+
+
+
+
+
+        <td><a href="#">Capa</a></td>
+
+
+
+
+
+        <td><a href="#">Memorando</a></td>
+        <td><a href="#">Relatório</a></td>
     </tr>
 
+    {% empty %}
+        <li>Sem itens na lista.</li>
     {% endfor %}
 
 </table>
