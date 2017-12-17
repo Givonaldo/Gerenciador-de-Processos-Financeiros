@@ -29,3 +29,27 @@ def listagem_diarias(request):
         raise Http404(u"Diárias Não Existem.")
     return render(request, template_name)
 
+
+#Abaixo, metodos para geração de PDF aparti da tabela de listagem de diárias.
+
+def gerar_capa(request):
+    value = request.GET.get('value', '1')
+    try:
+        diarias = ProcessoDeDiaria.objects.all()
+        #Percorre todos os objetos do tipo Diaria e chama o método de gerar pdf para a diária selecionada
+        for a in diarias:
+            if a.credor.nome == value:
+                #Implementar a geração do PDF
+                print("++++++++++++++++++++++++++++++++")
+    except ProcessoDeDiaria.DoesNotExist:
+        raise Http404(u"Diárias Não Existem.")
+
+    template_name = 'diarias.html'
+    return render(request, template_name)
+
+
+def gerar_memorando(request):
+    pass
+
+def gerar_relatorio(request):
+    pass

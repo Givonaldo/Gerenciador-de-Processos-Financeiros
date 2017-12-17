@@ -20,4 +20,4 @@ class DiariaAddForm(ModelForm):
     '''
     class Meta:
         model = ProcessoDeDiaria
-        fields = ['credor', 'destino', 'descricao', 'data_saida', 'data_volta']
+        fields = ['credor', 'destino', 'numero_processo','numero_memorando','descricao', 'data_saida', 'data_volta']

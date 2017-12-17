@@ -21,18 +21,9 @@
         <td>{{ diaria.data_saida }}</td>
         <td>{{ diaria.data_volta }}</td>
 
-
-
-
-
-        <td><a href="#">Capa</a></td>
-
-
-
-
-
-        <td><a href="#">Memorando</a></td>
-        <td><a href="#">Relatório</a></td>
+        <td><a href="{% url 'diaria:gerar_capa' %}?value={{diaria.credor.nome}}">Capa</a></td>
+        <td><a href="{% url 'diaria:gerar_memorando' %}?value={{diaria.credor.nome}}">Memorando</a></td>
+        <td><a href="{% url 'diaria:gerar_relatorio' %}?value={{diaria.credor.nome}}">Relatório</a></td>
     </tr>
 
     {% empty %}

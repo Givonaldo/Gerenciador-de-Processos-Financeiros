@@ -1,8 +1,4 @@
-.bt-container { 
-    position: absolute;
-    left: 200px;
-	top: 200px;
- }
+
 .text-white-houve:hover,
 .bt {
   color: #1e1d1d !important;
@@ -27,8 +23,3 @@
   border-radius: 4px;
 }
 
-li.botao-home {
-
-    button.list-style-image: url('image/home.png');
-
-}

@@ -75,14 +75,34 @@ table.tb_diarias tr:nth-child(even) {
 }
 
 table.tb_diarias {
-border: 1px solid black;
-  border-collapse: collapse;
-  width: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 20px;
-  resize: both;
-  overflow: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    resize: both;
+    overflow: auto;
 }
+
+.bt-container {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    resize: both;
+    overflow: auto;
+ }
+
+ li.botao-home {
+
+    button.list-style-image: url('image/home.png');
+
+}
+
